@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  - var result = [{"BoxingStyle":"Indian","GlovesSize":12,"BoxingGlovesColor":"red"},{"BoxinStyle":"Kickboxing","GlovesSize":14,"BoxingGlovesColor":"black"},{"BoxinStyle":"UFC","GlovesSize":18,"BoxingGlovesColor":"Cream"}]
+  div.container-fluid
+     div.row
+        each item,index in result
+            div.col-sm-2(onclick=`buy(${index})`)  Boxing_Style: #{item["BoxingStyle"]}   Gloves_Size: #{item["GlovesSize"]}BoxingGloves_Color: #{item["BoxingGlovesColor"]}  
+  script.
+      function buy(index){
+         alert("you purchased Boxing gloves "+(index+1)) 
+      }

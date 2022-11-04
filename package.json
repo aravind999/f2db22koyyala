@@ -1,0 +1,31 @@
+{
+  "name": "f2wb22koyyala",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "express": "~4.16.1",
+    "http-errors": "~1.6.3",
+    "mongodb": "^4.11.0",
+    "mongoose": "^6.7.1",
+    "morgan": "~1.9.1",
+    "pug": "2.0.0-beta11"
+  },
+  "description": "this is my second server\r [my server lin]:\"https://f2wb22koyyala.onrender.com/\"",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aravind999/f2wb22koyyala.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aravind999/f2wb22koyyala/issues"
+  },
+  "homepage": "https://github.com/aravind999/f2wb22koyyala#readme"
+}
