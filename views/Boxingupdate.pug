@@ -1,0 +1,43 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let Boxingid = toShow._id 
+  - let BoxingStyle = toShow.BoxingStyle 
+  - let GlovesSize = toShow.GlovesSize
+  - let BoxingGlovesCost = toShow.BoxingGlovesCost
+   
+  div.row(class='mb-2') 
+    div.mr-1 ID is 
+    div #{Boxingid} 
+  - let actionid = "/resource/Boxings/" + Boxingid 
+  form(id='BoxingForm', action= actionid, method="PUT") 
+    div.form-group 
+        label.BoxingAttr(for='BoxingStyle') Boxing BoxingStyle 
+        input#BoxingStyle(type='text', name='BoxingStyle', value= BoxingStyle ) 
+    div.form-group 
+        label.BoxingAttr(for='GlovesSize') Boxing GlovesSize
+        input#GlovesSize(type='text', name='GlovesSize', value= GlovesSize ) 
+    div.form-group 
+        label.BoxingAttr(for='BoxingGlovesCost') Boxing BoxingGlovesCost 
+        input#BoxingGlovesCost(type='number', name='BoxingGlovesCost', value= BoxingGlovesCost) 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['BoxingForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'PUT', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Update succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Update failed " + error ) 
+      }); 
+    }); 

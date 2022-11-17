@@ -1,5 +1,5 @@
 var Boxing = require('../models/Boxing');
-// List of all Costumes
+// List of all Boxings
 exports.Boxing_list = function(req, res) {
  res.send('NOT IMPLEMENTED: Boxing list');
 };
@@ -110,7 +110,7 @@ exports.Boxing_create_post = async function(req, res) {
         res.send(`{"error": ${err}}`); 
     }   
 }; 
-// for a specific Costume. 
+// for a specific Boxing. 
 exports.Boxing_detail = async function(req, res) { 
     console.log("detail"  + req.params.id) 
     try { 
@@ -159,6 +159,45 @@ exports.Boxing_view_one_Page = async function(req, res) {
         result = await Boxing.findById( req.query.id) 
         res.render('Boxingdetail',  
 { title: 'Boxing Detail', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+// Handle building the view for creating a Boxing. 
+// No body, no in path parameter, no query. 
+// Does not need to be async 
+exports.Boxing_create_Page =  function(req, res) { 
+    console.log("create view") 
+    try{ 
+        res.render('Boxingcreate', { title: 'Boxing Create'}); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+// Handle building the view for updating a Boxing. 
+// query provides the id 
+exports.Boxing_update_Page =  async function(req, res) { 
+    console.log("update view for item "+req.query.id) 
+    try{ 
+        let result = await Boxing.findById(req.query.id) 
+        res.render('Boxingupdate', { title: 'Boxing Update', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 
+// Handle a delete one view with id from query 
+exports.Boxing_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await Boxing.findById(req.query.id) 
+        res.render('Boxingdelete', { title: 'Boxing Delete', toShow: 
+result }); 
     } 
     catch(err){ 
         res.status(500) 
