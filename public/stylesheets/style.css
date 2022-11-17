@@ -7,7 +7,15 @@ a {
   color: #00B7FF;
 }
 .BoxingAttr { 
-  background-color: rgb(7, 142, 97); 
+  background-color: rgb(237, 11, 11); 
   width: 120px; 
+  text-shadow: 2px 2px #8bc4fd ;
 } 
- 
+.z{
+ text-align: center;
+ padding: 10px;
+ background-color: rgb(215, 226, 238);
+}
+.s{
+background-color: rgba(32, 237, 134, 0.863);
+}

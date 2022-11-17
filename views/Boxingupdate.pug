@@ -12,14 +12,14 @@ block content
     div.mr-1 ID is 
     div #{Boxingid} 
   - let actionid = "/resource/Boxings/" + Boxingid 
-  form(id='BoxingForm', action= actionid, method="PUT") 
-    div.form-group 
+  form(id='BoxingForm', action= actionid, method="PUT",class='z') 
+    div(class='z').form-group 
         label.BoxingAttr(for='BoxingStyle') Boxing BoxingStyle 
         input#BoxingStyle(type='text', name='BoxingStyle', value= BoxingStyle ) 
-    div.form-group 
+    div(class='z s').form-group 
         label.BoxingAttr(for='GlovesSize') Boxing GlovesSize
         input#GlovesSize(type='text', name='GlovesSize', value= GlovesSize ) 
-    div.form-group 
+    div(class='z s').form-group 
         label.BoxingAttr(for='BoxingGlovesCost') Boxing BoxingGlovesCost 
         input#BoxingGlovesCost(type='number', name='BoxingGlovesCost', value= BoxingGlovesCost) 
     input(type="submit") 
