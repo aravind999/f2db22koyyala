@@ -1,0 +1,23 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let Boxingid = toShow._id 
+  - let BoxingStyle = toShow.Boxing_type 
+  - let BoxingGlovesCost = toShow.cost 
+  - let GlovesSize = toShow.size 
+  div 
+    div.row 
+      div(class='BoxingAttr mr-3') Boxing ID is: 
+      div #{Boxingid} 
+    div.row 
+      div(class='BoxingAttr mr-3') Boxing Type is: 
+      div #{BoxingStyle} 
+    div.row 
+      div(class='BoxingAttr mr-3') Boxing  Size is: 
+      div #{GlovesSize} 
+    div.row 
+      div(class='BoxingAttr mr-3') Boxing  Cost is: 
+      div #{BoxingGlovesCost} 
+ 
