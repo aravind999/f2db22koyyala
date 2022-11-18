@@ -8,8 +8,10 @@ block content
   div.container-fluid
      div.row
         each item,index in result
-            div.col-sm-2(onclick=`buy(${index})`) Boxing_Style:#{item["BoxingStyle"]}  Gloves_Size:#{item["GlovesSize"]}  BoxingGloves_Color:#{item["BoxingGlovesColor"]}  
-  script.
-      function buy(index){
-         alert("you purchased Boxing gloves "+(index+1)) 
-      }
+          - let destination = `dispatch(\"/Boxings/update?id=${item._id}\")`
+            div.col-sm-2(onclick=`buy(${index})`) Boxing_Style:#{item["BoxingStyle"]}  Gloves_Size:#{item["GlovesSize"]}  BoxingGloves_Color:#{item["BoxingGlovesColor"]} 
+               button.btn( class="btn-warning ml-1", onclick= destination) Update  
+  script. 
+    function dispatch(path){ 
+      window.location.href=path 
+    } 
