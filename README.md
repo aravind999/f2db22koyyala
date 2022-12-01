@@ -4,6 +4,6 @@ this is my first mongo
 class Boxing {
              String BoxingStyle;
              var GlovesSize;
-             number BoxingGlovesColor; 
+             number BoxingGlovesCost; 
  } 
  

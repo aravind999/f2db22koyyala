@@ -3,15 +3,30 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
-  - let items = result
-  - var result = [{"BoxingStyle":"Indian","GlovesSize":12,"BoxingGlovesColor":"red"},{"BoxingStyle":"Kickboxing","GlovesSize":14,"BoxingGlovesColor":"black"},{"BoxingStyle":"UFC","GlovesSize":18,"BoxingGlovesColor":"Cream"},{"BoxingStyle":"MMA", "GlovesSize":"large", "BoxingGlovesCost":"35.0"} ]
+  - let items = result  
+  - let create = `dispatch(\"/Boxings/create\")`
+  - var result  = [{"BoxingStyle":"Indian","GlovesSize":12,"BoxingGlovesColor":"red"},{"BoxingStyle":"Kickboxing","GlovesSize":14,"BoxingGlovesColor":"black"},{"BoxingStyle":"UFC","GlovesSize":18,"BoxingGlovesColor":"Cream"},{"BoxingStyle":"MMA", "GlovesSize":"large", "BoxingGlovesColor":"blue"} ]
+    button.btn( class="btn-info ml-1", onclick= create) Create
   div.container-fluid
      div.row
         each item,index in result
           - let destination = `dispatch(\"/Boxings/update?id=${item._id}\")`
+          - let detail = `dispatch(\"/Boxings/detail?id=${item._id}\")` 
+          - let deleteItem = `dispatch(\"/Boxings/delete?id=${item._id}\")`
             div.col-sm-2(onclick=`buy(${index})`) Boxing_Style:#{item["BoxingStyle"]}  Gloves_Size:#{item["GlovesSize"]}  BoxingGloves_Color:#{item["BoxingGlovesColor"]} 
-               button.btn( class="btn-warning ml-1", onclick= destination) Update  
-  script. 
-    function dispatch(path){ 
-      window.location.href=path 
-    } 
+            p
+
+            button.btn( class="btn-primary ml-1", onclick= destination) Update 
+            p
+
+            button.btn( class="btn-primary ml-1", onclick= detail) Detail
+            p 
+
+            button.btn( class="btn-primary ml-1", onclick= deleteItem) Delete
+
+
+
+
+               script. 
+    
+                     function dispatch(path){ window.location.href=path } 
